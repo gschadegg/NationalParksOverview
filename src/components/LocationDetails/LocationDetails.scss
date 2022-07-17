@@ -1,0 +1,135 @@
+#mapDetails {
+  .dataContainer_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h2 {
+      color: #4b5361;
+      font-weight: bold;
+      font-size: 1.6rem;
+      text-align: left;
+      margin: 6px 8px 6px 0;
+    }
+    a {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.15);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #e1e4e7;
+      color: #8697aa;
+
+      img {
+        opacity: 0.5;
+      }
+      &:hover,
+      &:focus {
+        background-color: #fafbfd;
+        border: 1px solid #bec3c9;
+        color: #5c6e83;
+        // color: #5c6e83;
+        img {
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+  .dataContainer_state {
+    color: #b7c2cc;
+    font-weight: bold;
+    font-size: 1rem;
+    text-align: left;
+    width: 100%;
+    display: block;
+    margin-bottom: 2rem;
+  }
+  .dataContainer_desc {
+    text-align: left;
+    color: #4b5361;
+    font-weight: 400;
+    font-size: 1rem;
+  }
+  .dataContainer_activitiesTags {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 44px;
+    .activityTag {
+      color: #4b5361;
+      font-size: 0.8rem;
+      font-weight: 400;
+      border-radius: 10px;
+      background-color: #d7edea;
+      display: flex;
+      margin: 0 6px 6px 0;
+      padding: 4px 8px;
+      justify-content: center;
+      align-items: center;
+    }
+    .activitiesTag_showBtn {
+      width: 100%;
+      border: 1px solid #e1e4e7;
+      border-radius: 9999px;
+      background-color: transparent;
+      padding: 16px 0;
+      margin-top: 20px;
+      color: #8697aa;
+      box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.15);
+      cursor: pointer;
+      &:hover,
+      &:focus {
+        background-color: #fafbfd;
+        border: 1px solid #bec3c9;
+        color: #5c6e83;
+      }
+    }
+  }
+  .divider {
+    background-color: #c4c4c4;
+    height: 2px;
+    width: 100%;
+    margin: 60px 0 2rem;
+  }
+  .dataContainer_recommended {
+    ::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+      border-radius: 10px;
+      background-color: #ccdddf;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #9eb2b4;
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #6c8a8d;
+      cursor: pointer;
+    }
+    h3 {
+      font-size: 1.2rem;
+      color: #4b5361;
+      font-weight: bold;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      margin-bottom: 24px;
+      img {
+        margin-right: 12px;
+        margin-left: 8px;
+        opacity: 0.8;
+      }
+    }
+  }
+  .dataContainer_cardWrap {
+    max-height: calc(100vh - 300px);
+    overflow-x: auto;
+    display: block;
+    padding-right: 8px;
+  }
+}

@@ -1,0 +1,133 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #d4d9d8;
+}
+.mapDisplay_wrap {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  @media (min-width: 800px) {
+    flex-direction: row;
+  }
+}
+
+.mapDisplay_locationList {
+  position: absolute;
+  top: 0;
+  // left: 70px;
+  z-index: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgb(252, 253, 253);
+  background: linear-gradient(
+    180deg,
+    rgba(252, 253, 253, 0.85) 64%,
+    rgba(252, 253, 253, 0) 100%
+  );
+  padding: 16px 0 28px;
+  width: 100%;
+  @media (min-width: 800px) {
+    align-items: flex-start;
+  }
+  span {
+    font-size: 1.5rem;
+    color: #276b62;
+    @media (min-width: 800px) {
+      font-size: 2rem;
+      margin-left: 82px;
+    }
+  }
+  select {
+    cursor: pointer;
+    text-align: center;
+    background: #eaf5f4;
+    border: 2px solid transparent;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #276b62;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    padding: 4px 8px;
+    outline: none !important;
+
+    &:hover {
+      background-color: #b6dbd7;
+      // border: 2px solid #b6dbd7;
+    }
+    &:active {
+      border: 2px solid transparent;
+    }
+    &:focus {
+      border: 2px solid #276b62;
+    }
+
+    @media (min-width: 800px) {
+      text-align: left;
+      font-size: 2rem;
+      margin-left: 70px;
+    }
+  }
+}
+
+.mapDisplay_locationDataCol {
+  z-index: 500;
+  min-height: 100vh;
+  height: 100%;
+  position: relative;
+  width: 90%;
+  margin: 0 auto;
+  top: -100px;
+  overflow-x: auto;
+  box-shadow: 2px 2px 5px 2px rgb(108, 129, 132, 0.3);
+  border-radius: 10px;
+  h2 {
+    color: gray;
+    font-size: 1.5rem;
+    text-align: left;
+    text-transform: uppercase;
+  }
+  @media (min-width: 800px) {
+    max-width: 432px;
+    top: 0;
+    height: 100vh;
+    border-radius: 0;
+    box-shadow: -4px 0px 2px 3px rgb(108, 129, 132, 0.3);
+  }
+}
+
+.dataColumn_container {
+  padding: 28px 32px 20px;
+  background-color: #fcfdfd;
+  min-height: 100vh;
+  box-shadow: -4px 0px 2px 3px rgb(108, 129, 132, 0.3);
+  li {
+    color: black;
+  }
+}
+.leafletMap-container {
+  height: 100vh;
+  min-height: 600px;
+  width: 100%;
+  .leaflet-tile-pane {
+    -webkit-filter: contrast(1.2) url('./../assets/filter.svg/#teal-white');
+    filter: contrast(1.2) url('./../assets/filter.svg/#teal-white');
+  }
+
+  .leaflet-control-attribution {
+    display: none;
+  }
+  @media (min-width: 800px) {
+    width: calc(100% - 432px);
+    flex: 1;
+  }
+}

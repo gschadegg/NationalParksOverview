@@ -1,25 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useMemo } from 'react'
 
-function App() {
+import ParkMap from './components/ParkMap/ParkMap'
+import LocationDetails from './components/LocationDetails/LocationDetails'
+import Notification from './components/Notifications/Notification'
+
+import { useMounted } from './hooks/utils'
+import { useNotification } from './components/Notifications/useNotification'
+import { useNationalParks } from './hooks/useNationalParks.js'
+
+import './styles/NationalParksMap.scss'
+
+const App = () => {
+  const mounted = useMounted()
+  const { notification, showNotification } = useNotification()
+  const { location, allLocations, setLocationToSelected } = useNationalParks()
+
+  //creates list of NP as select dd options
+  const locationOptions = useMemo(() => {
+    if (allLocations) {
+      return allLocations.map((park) => {
+        return (
+          <option key={park.name} id={park.id}>
+            {park.name}
+          </option>
+        )
+      })
+    }
+  }, [allLocations])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      {mounted && (
+        <article className="mapDisplay_wrap">
+          <Notification value={{ notification, showNotification }} />
+          <section className="mapDisplay_locationList">
+            <select onChange={setLocationToSelected} value={location.name}>
+              {locationOptions ? locationOptions : <option>loading...</option>}
+            </select>
+            <span>National Park</span>
+          </section>
+          <ParkMap location={location} />
+          <section className="mapDisplay_locationDataCol">
+            {location && <LocationDetails location={location.parkdata} />}
+          </section>
+        </article>
+      )}
+    </>
+  )
 }
 
-export default App;
+export default App

@@ -1,0 +1,28 @@
+.notification {
+  position: absolute;
+  z-index: 1000;
+  border-radius: 10px;
+  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: -20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 24px;
+  transition: all 0.25s ease;
+  opacity: 0;
+  &.show {
+    top: 22px;
+    opacity: 1;
+  }
+}
+
+.error {
+  background-color: rgb(133, 10, 10);
+}
+.success {
+  background-color: rgb(10, 133, 47);
+}
